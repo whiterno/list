@@ -1,0 +1,11 @@
+digraph D{
+rankdir = LR;
+node_0 [shape = record, label = " data: 0 | next: 1 | prev: 0 "]
+node_1 [shape = record, label = " data: 5 | next: 2 | prev: 0 "]
+node_2 [shape = record, label = " data: 10 | next: 3 | prev: 1 "]
+node_3 [shape = record, label = " data: 15 | next: 0 | prev: 2 "]
+node_4 [shape = record, label = " data: 0 | next: 5 | prev: -1 "]
+node_5 [shape = record, label = " data: 0 | next: 6 | prev: -1 "]
+node_6 [shape = record, label = " data: 0 | next: 7 | prev: -1 "]
+node_7 [shape = record, label = " data: 0 | next: 0 | prev: -1 "]
+}

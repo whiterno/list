@@ -1,0 +1,1 @@
+dot log/dump.dot -Tpng -o log/test.png
