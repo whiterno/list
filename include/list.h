@@ -13,10 +13,12 @@
 #define DUMP(list) list, __FILE__, __func__, __LINE__
 
 //! TODO: make dynamic reallocation if max is exceeded
-//! TODO: segfault 11 occures if LIST_SIZE is 14, 15 or 16 (if higher or lower everything is smooth). Repair
 
 //! @brief Max amount of elements contained in list's array
 const int LIST_SIZE = 8;
+
+//! @brief Max amount of symbols in cmd string for system() call
+const int MAX_CMD_SIZE = 64;
 
 //! @brief Dump .dot filename for png creating
 const char DUMP_DOT_FILENAME[] = "log/dump.dot";
@@ -42,8 +44,6 @@ struct List{
     size_t line;
 
     Node* nodes;    ///< array of nodes
-    int head;       ///< list's logical beginning
-    int tail;       ///< list's logical end
     int free;       ///< index of the first free node in list
     int size;       ///< amount of elements in list's array
 };
@@ -76,14 +76,6 @@ int listCtor(List** list INIT_ARGS);
 //! @return Error code
 //!
 int listDtor(List** list);
-
-int listPushBack(List* list, nodeData data);
-
-int listPushFront(List* list, nodeData data);
-
-int listPopBack(List* list, nodeData* data);
-
-int listPopFront(List* list, nodeData* data);
 
 int listInsert(List* list, int pos, nodeData data);
 

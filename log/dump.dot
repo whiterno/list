@@ -1,11 +1,55 @@
 digraph D{
-rankdir = LR;
-node_0 [shape = record, label = " data: 0 | next: 1 | prev: 0 "]
-node_1 [shape = record, label = " data: 5 | next: 2 | prev: 0 "]
-node_2 [shape = record, label = " data: 10 | next: 3 | prev: 1 "]
-node_3 [shape = record, label = " data: 15 | next: 0 | prev: 2 "]
-node_4 [shape = record, label = " data: 0 | next: 5 | prev: -1 "]
-node_5 [shape = record, label = " data: 0 | next: 6 | prev: -1 "]
-node_6 [shape = record, label = " data: 0 | next: 7 | prev: -1 "]
-node_7 [shape = record, label = " data: 0 | next: 0 | prev: -1 "]
+	rankdir = LR
+	{
+	node[shape = plaintext]
+	edge[color = "white"]
+	"0" -> "1" -> "2" -> "3" -> "4" -> "5" -> "6" -> "7"
+	}
+
+	free [color = "darkblue"]
+
+	fictitious [color = "orange"]
+
+	{rank = same;  "0"; node_0; fictitious;}
+	{rank = same;  "1"; node_1;}
+	{rank = same;  "2"; node_2;}
+	{rank = same;  "3"; node_3;}
+	{rank = same;  "4"; node_4; free;}
+	{rank = same;  "5"; node_5;}
+	{rank = same;  "6"; node_6;}
+	{rank = same;  "7"; node_7;}
+
+	node_0 [shape = record, label = " data: 0 | next: 3 | prev: 2 "]
+	node_1 [shape = record, label = " data: 20 | next: 2 | prev: 3 "]
+	node_2 [shape = record, label = " data: 10 | next: 0 | prev: 1 "]
+	node_3 [shape = record, label = " data: 15 | next: 1 | prev: 0 "]
+	node_4 [shape = record, label = " data: 0 | next: 5 | prev: -1 "]
+	node_5 [shape = record, label = " data: 0 | next: 6 | prev: -1 "]
+	node_6 [shape = record, label = " data: 0 | next: 7 | prev: -1 "]
+	node_7 [shape = record, label = " data: 0 | next: 0 | prev: -1 "]
+
+	node_0 -> node_1 [weight = 100, color = "white"]
+	node_1 -> node_2 [weight = 100, color = "white"]
+	node_2 -> node_3 [weight = 100, color = "white"]
+	node_3 -> node_4 [weight = 100, color = "white"]
+	node_4 -> node_5 [weight = 100, color = "white"]
+	node_5 -> node_6 [weight = 100, color = "white"]
+	node_6 -> node_7 [weight = 100, color = "white"]
+
+	node_0 -> node_3 [color = "darkgreen"]
+	node_0 [color  = "orange"]
+	node_3 -> node_1 [color = "darkgreen"]
+	node_3 [color  = "darkgreen"]
+	node_1 -> node_2 [color = "darkgreen"]
+	node_1 [color  = "darkgreen"]
+	node_2 -> node_0 [color = "darkgreen"]
+	node_2 [color  = "darkgreen"]
+
+	node_4 [color  = "darkblue"]
+	node_4 -> node_5 [color = "darkblue"]
+	node_5 [color  = "darkblue"]
+	node_5 -> node_6 [color = "darkblue"]
+	node_6 [color  = "darkblue"]
+	node_6 -> node_7 [color = "darkblue"]
+	node_7 [color  = "darkblue"]
 }
