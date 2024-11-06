@@ -17,21 +17,52 @@ int main(){
 
     int var = 0;
 
-    printf("error code - %d\n", listInsert(list, 0, 5));
-    printf("error code - %d\n", listInsert(list, 1, 10));
-    listDump(DUMP(list));
-    printf("error code - %d\n", listInsert(list, 1, 15));
-    printf("error code - %d\n", listPop(list, 0, &var));
-    listDump(DUMP(list));
-    printf("error code - %d\n", listInsert(list, 1, 20));
-    // int var = 0;
-    // listPop(list, 1, &var);
-    // printf("var - %d\n", var);
-    // listInsert(list, 1, 20);
+    int error = 0;
 
-    printf("Free - %d\n", list->free);
-    printf("Size - %d\n", list->size);
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 0, 5));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 10));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 15));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 15));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 15));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 15));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 15));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 15));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 15));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listPop(list, 0, &var));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listPop(list, 2, &var));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listPop(list, 3, &var));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listPop(list, 2, &var));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listPop(list, 0, &var));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 20));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 20));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listInsert(list, 1, 20));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listPop(list, 0, &var));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listPop(list, 0, &var));
+    listDump(DUMP(list), error);
+    printf("error code - %d\n", error = listPop(list, 0, &var));
+    listDump(DUMP(list), error);
 
     printList(list);
-    listDump(DUMP(list));
+    listDump(DUMP(list), error);
+    listLinear(list);
+    listDump(DUMP(list), error);
 }
