@@ -33,10 +33,10 @@ struct Node{
 
 //! @brief Structure contains an array of nodes, first free element index, size of list and some debug info
 struct List{
-    const char* name;
-    const char* filename;
-    const char* funcname;
-    size_t line;
+    const char* name;       ///< list's name
+    const char* filename;   ///< filename where list was initialized
+    const char* funcname;   ///< funcname where list was initialized
+    size_t line;            ///< serial number of line where list was initialized
 
     Node* nodes;            ///< array of nodes
     int free;               ///< index of the first free node in list
