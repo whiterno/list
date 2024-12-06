@@ -257,6 +257,10 @@ static int createDotFile(List* list, int error){
         return error;
     }
 
+    const char free_color[] = "darkblue";
+    const char fict_color[] = "orange";
+    const char elem_color[] = "darkgreen";
+
     FILE* dump_dot = fopen(DUMP_DOT_FILENAME, "w");
     fprintf(dump_dot, "digraph D{\n");
     fprintf(dump_dot, "\trankdir = LR\n");
@@ -272,9 +276,9 @@ static int createDotFile(List* list, int error){
     fprintf(dump_dot, "\t}\n\n");
 
     if (list->free != 0){
-        fprintf(dump_dot, "\tfree [color = \"darkblue\"]\n\n");
+        fprintf(dump_dot, "\tfree [color = \"%s\"]\n\n", free_color);
     }
-    fprintf(dump_dot, "\tfictitious [color = \"orange\"]\n\n");
+    fprintf(dump_dot, "\tfictitious [color = \"%s\"]\n\n", fict_color);
 
     for (int i = 0; i < list->capacity; i++){
         if (i == list->free && list->free != 0){
@@ -308,12 +312,12 @@ static int createDotFile(List* list, int error){
 
     int cnt = 0;
     for (int i = 0; ; i = list->nodes[i].next){
-        fprintf(dump_dot, "\tnode_%d -> node_%d [color = \"darkgreen\"]\n", i, list->nodes[i].next);
+        fprintf(dump_dot, "\tnode_%d -> node_%d [color = \"%s\"]\n", i, list->nodes[i].next, elem_color);
         if (i != 0){
-            fprintf(dump_dot, "\tnode_%d [color  = \"darkgreen\"]\n", i);
+            fprintf(dump_dot, "\tnode_%d [color  = \"%s\"]\n", i, elem_color);
         }
         else{
-            fprintf(dump_dot, "\tnode_%d [color  = \"orange\"]\n", i);
+            fprintf(dump_dot, "\tnode_%d [color  = \"%s\"]\n", i, fict_color);
         }
         if (list->nodes[i].next == 0){
             break;
@@ -329,11 +333,11 @@ static int createDotFile(List* list, int error){
 
     cnt = 0;
     for (int i = list->free; i != 0; i = list->nodes[i].next){
-        fprintf(dump_dot, "\tnode_%d [color  = \"darkblue\"]\n", i);
+        fprintf(dump_dot, "\tnode_%d [color  = \"%s\"]\n", i, free_color);
         if (list->nodes[i].next == 0){
             break;
         }
-        fprintf(dump_dot, "\tnode_%d -> node_%d [color = \"darkblue\"]\n", i, list->nodes[i].next);
+        fprintf(dump_dot, "\tnode_%d -> node_%d [color = \"%s\"]\n", i, list->nodes[i].next, free_color);
 
         cnt++;
         if (cnt == list->capacity + 2){
